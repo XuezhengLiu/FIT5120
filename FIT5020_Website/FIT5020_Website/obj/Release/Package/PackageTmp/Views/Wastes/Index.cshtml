@@ -1,0 +1,66 @@
+﻿@model IEnumerable<FIT5020_Website.Models.Waste>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('../../Content/startbootstrap-clean-blog-gh-pages/assets/img/微信图片_20220313140447.jpg');">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Waste Sorting</h1>
+                    <span class="subheading">Confused about which trash can to throw in? Search it!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<h2>Find the right bin</h2>
+
+<div class="SearchBar">
+    <form name="s" action="/Wastes/Search" method="get">
+        <table border="0" , cellspacing="0" cellpadding="0">
+            <tr valign=" middle" allign=" right">
+                <td>
+                    <input type="text" name="key" class="button" />
+                </td>
+                <td>
+                    <input type="submit" value=" Search" class="submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BinType)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BinType)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Show All", "Index")
+</p>

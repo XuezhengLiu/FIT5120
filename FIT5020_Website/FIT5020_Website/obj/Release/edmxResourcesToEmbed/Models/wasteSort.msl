@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="wasteSortStoreContainer" CdmEntityContainer="wasteSortContainer">
+    <EntitySetMapping Name="WasteSet">
+      <EntityTypeMapping TypeName="IsTypeOf(wasteSort.Waste)">
+        <MappingFragment StoreEntitySet="WasteSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BinType" ColumnName="BinType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

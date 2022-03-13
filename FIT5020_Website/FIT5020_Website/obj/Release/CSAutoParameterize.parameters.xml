@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="wasteSortContainer-Web.config Connection String" description="wasteSortContainer 由应用程序在 web.config 中用来访问数据库的连接字符串。" defaultValue="Server=tcp:fit5020-db-testdbserver.database.windows.net,1433;Initial Catalog=FIT5020_DB_TEST_db;Persist Security Info=False;User ID=TA26;Password=Lxz123456;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\12508\\Desktop\\FIT5020_Website\\FIT5020_Website\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='wasteSortContainer']/@connectionString" />
+  </parameter>
+</parameters>

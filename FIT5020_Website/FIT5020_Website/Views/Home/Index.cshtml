@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('../../Content/startbootstrap-clean-blog-gh-pages/assets/img/微信图片_20220313140552.jpg');">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>Easy Sorting</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="jumbotron">
+        <p class="lead" align ="center">Easy Sorting is a simple tool to help you calculate your life's carbon emissions and sort wastes correctly</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5" id="d1">
+            <h2>Carbon Emissions Calculator</h2>
+            <p>
+                This calculator helps you find out how much carbon emissions
+                can be reduced by recycling common everyday waste,
+                and you can visualize how many trees it takes to absorb those emissions in a year.
+            </p>
+            <p>@Html.ActionLink("Calculator", "Calculator", new { controller = "Home" }, new { @class = "btn btn-primary btn-lg" })</p>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5" id="d2">
+            <h2>Sort your waste</h2>
+            <p>
+                Waste sorting has always been a big issue, you can search which bin common materials should go into.
+            </p>
+            <p>@Html.ActionLink("Recycle Type", "Index", new { controller = "Wastes" }, new { @class = "btn btn-primary btn-lg" })</p>
+        </div>
+    </div>

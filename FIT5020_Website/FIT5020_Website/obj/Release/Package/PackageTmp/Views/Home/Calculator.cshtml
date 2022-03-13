@@ -1,0 +1,200 @@
+﻿@{
+    ViewBag.Title = "Calculator";
+}
+
+
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('../../Content/startbootstrap-clean-blog-gh-pages/assets/img/微信图片_20220313140611.jpg');">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>Emissions Calculator</h1>
+                        <span class="subheading">Wondering how much carbon emissions are reduced by recycling them? Let's do the math</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div>
+        <style type="text/css">
+            .t {
+                border: 1px gray solid;
+                border-spacing: 0px;
+                border-collapse: collapse;
+                margin: 0px auto;
+            }
+
+                .t td {
+                    border: 1px gray solid;
+                    padding: 5px;
+                }
+
+                .t th {
+                    border: 1px gray solid;
+                    padding: 5px;
+                }
+        </style>
+        <script type="text/javascript">
+
+            function calculate(number, coefficient) {
+                var result = number * coefficient;
+                return result.toFixed(2);
+            }
+
+
+            window.onload = function () {
+
+                var coeArray1 = [13.26, 4.95, 0.29, 12.78, 4.42, 578.86, 15.19, 1.5, 1.79];
+                var coeArray2 = [0.02, 0.01, 0, 0.02, 0.01, 0.87, 0.02, 0, 0];
+                var inputIdArray = ["weight1", "weight2", "weight3", "weight4", "weight5", "weight6", "weight7", "weight8", "weight9"];
+                var clIdArray = ["m1c1", "m2c1", "m3c1", "m4c1", "m5c1", "m6c1", "m7c1", "m8c1", "m9c1"];
+                var crIdArray = ["m1c2", "m2c2", "m3c2", "m4c2", "m5c2", "m6c2", "m7c2", "m8c2", "m9c2"];
+
+                var submitButton = document.getElementById("submitButton");
+                submitButton.onclick = function () {
+                    var totalWeight = 0;
+                    var totalCO2 = 0;
+                    var totalTrees = 0;
+
+                    for (i = 0; i < 9; i++) {
+                        var weight = document.getElementById(inputIdArray[i]).value;
+                        var result1 = calculate(weight, coeArray1[i]);
+                        var result2 = calculate(weight, coeArray2[i]);
+
+                        var num = parseFloat(weight);
+                        result1 = parseFloat(result1);
+                        result2 = parseFloat(result2);
+
+                        totalWeight = totalWeight + num;
+                        totalCO2 = totalCO2 + result1;
+                        totalTrees = totalTrees + result2;
+
+                        document.getElementById(clIdArray[i]).innerHTML = result1;
+                        document.getElementById(crIdArray[i]).innerHTML = result2;
+                    }
+
+                    document.getElementById("totalWeigtht").innerHTML = totalWeight.toFixed(2);
+                    document.getElementById("totalCO2").innerHTML = totalCO2.toFixed(2);
+                    document.getElementById("totalTrees").innerHTML = totalTrees.toFixed(2);
+
+
+                };
+                var resetButton = document.getElementById("resetButton");
+                resetButton.onclick = function () {
+                    for (i = 0; i < 9; i++) {
+                        document.getElementById(inputIdArray[i]).value = 0;
+                        document.getElementById(clIdArray[i]).innerHTML = 0;
+                        document.getElementById(crIdArray[i]).innerHTML = 0;
+                        document.getElementById("totalWeigtht").innerHTML = 0;
+                        document.getElementById("totalCO2").innerHTML = 0;
+                        document.getElementById("totalTrees").innerHTML = 0;
+                    }
+                }
+            };
+        </script>
+
+        <div id="formDiv">
+            <table id="inpTable" class="t">
+                <tr>
+                    <th title="Material">Material</th>
+                    <th title="Total Recovery(tonnes)">Total Recovery<br>(tonnes)</th>
+                    <th title="Total CO2eq(kg)">CO<sub>2</sub>(kg)</th>
+                    <th title="Equivalent trees planted required for carbon absorption">Trees</th>
+                </tr>
+                <tr>
+                    <td class="word">Aluminium Cans (soft drink) </td>
+                    <td class="inp">
+                        <input type="text" id="weight1" value=0>
+                    </td>
+                    <td id="m1c1" align="right">0</td>
+                    <td id="m1c2" align="right">0</td>
+                </tr>
+                <tr>
+                    <td class="word">Packaging Steel (food cans) </td>
+                    <td class="inp">
+                        <input type="text" id="weight2" value=0>
+                    </td>
+                    <td id="m2c1" align="right">0</td>
+                    <td id="m2c2" align="right">0</td>
+                </tr>
+                <tr>
+                    <td class="word">Cardboard /</br> paper packaging </td>
+                    <td class="inp">
+                        <input type="text" id="weight3" value=0>
+                    </td>
+                    <td id="m3c1" align="right">0</td>
+                    <td id="m3c2" align="right">0</td>
+                </tr>
+                <tr>
+                    <td class="word">Newspaper</td>
+                    <td class="inp">
+                        <input type="text" id="weight4" value=0>
+                    </td>
+                    <td id="m4c1" align="right">0</td>
+                    <td id="m4c2" align="right">0</td>
+                </tr>
+                <tr>
+                    <td class="word">Other (mixed paper) </td>
+                    <td class="inp">
+                        <input type="text" id="weight5" value=0>
+                    </td>
+                    <td id="m5c1" align="right">0</td>
+                    <td id="m5c2" align="right">0</td>
+                </tr>
+                <tr>
+                    <td class="word">Green waste bin</td>
+                    <td class="inp">
+                        <input type="text" id="weight6" value=0>
+                    </td>
+                    <td id="m6c1" align="right">0</td>
+                    <td id="m6c2" align="right">0</td>
+                </tr>
+                <tr>
+                    <td class="word">Glass Containers (wine bottles) </td>
+                    <td class="inp">
+                        <input type="text" id="weight7" value=0>
+                    </td>
+                    <td id="m7c1" align="right">0</td>
+                    <td id="m7c2" align="right">0</td>
+                </tr>
+                <tr>
+                    <td class="word">PET (beverage bottles) </td>
+                    <td class="inp">
+                        <input type="text" id="weight8" value=0>
+                    </td>
+                    <td id="m8c1" align="right">0</td>
+                    <td id="m8c2" align="right">0</td>
+                </tr>
+                <tr>
+                    <td class="word">HDPE (average) (milk bottles) </td>
+                    <td class="inp">
+                        <input type="text" id="weight9" value=0>
+                    </td>
+                    <td id="m9c1" align="right">0</td>
+                    <td id="m9c2" align="right">0</td>
+                </tr>
+                <tr>
+                    <td class="word">Total </td>
+                    <td id="totalWeigtht" align="right">0</td>
+                    <td id="totalCO2" align="right">0</td>
+                    <td id="totalTrees" align="right">0</td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <button id="submitButton">
+                            Submit
+                        </button>
+                    </td>
+                    <td colspan="2" align="center">
+                        <button id="resetButton">
+                            Reset
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
