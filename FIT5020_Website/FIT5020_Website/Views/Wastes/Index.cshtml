@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <!-- Page Header-->
 <header class="masthead" style="background-image: url('../../Content/startbootstrap-clean-blog-gh-pages/assets/img/微信图片_20220313140447.jpg');">
     <div class="container position-relative px-4 px-lg-5">
@@ -64,3 +65,49 @@
 <p>
     @Html.ActionLink("Show All", "Index")
 </p>
+
+<button class="js-back-to-top back-to-top" title="Back to Top">︽</button>
+
+<style>
+    .back-to-top {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        border: 1px solid #5cb85c;
+        outline: none;
+        background-color: #fff;
+        color: #5cb85c;
+        cursor: pointer;
+        padding: 10px 15px 15px 15px;
+        border-radius: 10px;
+    }
+
+        .back-to-top:hover {
+            background-color: #5cb85c;
+            color: #fff;
+        }
+</style>
+
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    $(function () {
+        var $win = $(window);
+        var $backToTop = $('.js-back-to-top');
+        // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+        $win.scroll(function () {
+            if ($win.scrollTop() > 100) {
+                $backToTop.show();
+            } else {
+                $backToTop.hide();
+            }
+        });
+        // 当用户点击按钮时，通过动画效果返回头部
+        $backToTop.click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 200);
+        });
+    });
+</script>

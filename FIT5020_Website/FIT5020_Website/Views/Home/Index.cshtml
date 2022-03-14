@@ -16,19 +16,19 @@
         </div>
     </header>
     <div class="jumbotron">
-        <p class="lead" align ="center">Easy Sorting is a simple tool to help you calculate your life's carbon emissions and sort wastes correctly</p>
+        <p class="lead" align="center">Easy Sorting is a simple tool to help you calculate your life's carbon absorption and sort wastes correctly</p>
     </div>
 
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-5" id="d1">
-            <h2>Carbon Emissions Calculator</h2>
+            <h2>Carbon Absorption Calculator</h2>
             <p>
                 This calculator helps you find out how much carbon emissions
-                can be reduced by recycling common everyday waste,
+                can be absorbed by recycling common everyday waste,
                 and you can visualize how many trees it takes to absorb those emissions in a year.
             </p>
-            <p>@Html.ActionLink("Calculator", "Calculator", new { controller = "Home" }, new { @class = "btn btn-primary btn-lg" })</p>
+            
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-5" id="d2">
@@ -36,6 +36,15 @@
             <p>
                 Waste sorting has always been a big issue, you can search which bin common materials should go into.
             </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5" id="d1">
+            <p>@Html.ActionLink("Calculator", "Calculator", new { controller = "Home" }, new { @class = "btn btn-primary btn-lg" })</p>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5" id="d2">
             <p>@Html.ActionLink("Recycle Type", "Index", new { controller = "Wastes" }, new { @class = "btn btn-primary btn-lg" })</p>
         </div>
     </div>

@@ -121,8 +121,8 @@ namespace FIT5020_Website.Controllers
                            select waste;
             if (!String.IsNullOrEmpty(key))
             {
-                key = key.Trim();
-                wastes = wastes.Where(a => a.Name.Contains(key));
+                key = key.Trim().ToLower();
+                wastes = wastes.Where(a => a.Name.ToLower().Contains(key));
             }
             return View("Index", wastes);
         }
